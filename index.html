@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav-bar"></nav>
+
+    <div id="app">
+        <div class="product-image" v-bind:style="variants[selectedVariant].variantImage">            
+        </div>
+
+        <div class="product-info">
+            <h1>{{ title }}</h1>
+            <p v-if="inventory >= 3">In Stock</p>
+            <p v-else-if="inventory <= 2 && inventory > 0">Almost sold out!</p>
+            <p v-else>Out of Stock</p>
+            <p v-if="inCity">This product avaliable in your city</p>
+            <p v-else="inCity">Out of city</p>
+            <p v-if="onSale">SALE!!!</p>
+            <p v-else="onSale">no sales avalieble now</p>
+            <ul>
+                <li v-for="detail in details">{{detail}}</li>
+            </ul>
+
+            <div v-for="(variant, index) in variants" 
+                :key="variant.variantId"
+                class="color-box"
+                :style="{backgroundColor: variant.variantColor}"
+                @mouseover="updateProduct(index)"
+                >
+            </div>
+
+            <button v-on:click="addToCart" :disabled="!inCity || inventory <= 0">Add to Cart</button>
+            <button v-on:click="removeFromCart" :disabled="!inCity || inventory <= 0">Remove from Cart</button>
+
+            <div class="cart">
+                <div>Cart ({{cart}})</div>
+            </div>
+
+        </div>
+
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="main.js"></script>
+</body>
+</html>

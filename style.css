@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+body{
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#app{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 16px;
+}
+.nav-bar{
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(45deg,#e66465, #9198e5)
+}
+.product-image{
+    width: 300px;
+    height: 300px;
+    background-size: cover!important;
+
+}
+.product-info{
+    display: inline-block;
+}
+button{
+    background-color: orange;
+    padding: 10px;
+}
+.color-box{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+.cart{
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top:20px;
+    padding: 20px;
+    border:1px solid #999;
+}
+.notInStock{
+    text-decoration: line-through;
+}
